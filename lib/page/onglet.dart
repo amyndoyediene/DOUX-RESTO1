@@ -1,5 +1,7 @@
+import 'package:amimobile9/page/compte.dart/conexion.dart';
+import 'package:amimobile9/page/compte.dart/inscription.dart';
 import 'package:amimobile9/page/liste/listeresto.dart';
-import 'package:amimobile9/page/note.dart';
+import 'package:amimobile9/page/tesr.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -22,8 +24,9 @@ class _HomePageState extends State<HoPage> {
   int _currentIndex = 0;
   final List<Widget> _pages = [
     RestaurantList(),
-    AvisPage(),
-    AvisPage(),
+    LoginPage(),
+    testPage(),
+    SiPage(),
   ];
 
   @override
@@ -50,8 +53,8 @@ class _HomePageState extends State<HoPage> {
         currentIndex: _currentIndex,
         selectedItemColor:
             Colors.red, // Couleur des icônes sélectionnées en vert
-        unselectedItemColor: Colors.red
-            .shade300, // Couleur des icônes non sélectionnées en vert clair
+        unselectedItemColor: Colors
+            .red.shade300, // Couleur des icônes non sélectionnées en vert clair
         onTap: (index) {
           setState(() {
             _currentIndex = index;
@@ -59,15 +62,19 @@ class _HomePageState extends State<HoPage> {
         },
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.list),
             label: 'Liste',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_moderator_outlined),
-            label: 'Panier',
+            icon: Icon(Icons.new_label),
+            label: 'Nouveaute',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.hide_image_rounded),
+            label: 'Coup de coeur',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_balance),
             label: 'Compte',
           ),
         ],

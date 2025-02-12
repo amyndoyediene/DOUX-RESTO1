@@ -42,15 +42,42 @@ class RestaurantList extends StatelessWidget {
       'telephone': '70-443-07-65',
       'image': 'assets/r1.jpeg'
     },
+    {
+      'nom': 'Chez Ndeye',
+      'specialite': 'Plat senegalaise',
+      'adresse': 'Hersent',
+      'ville': 'thies',
+      'telephone': '70-443-07-65',
+      'image': 'assets/r1.jpeg'
+    },
+    {
+      'nom': 'Chez Ndeye',
+      'specialite': 'Plat senegalaise',
+      'adresse': 'Hersent',
+      'ville': 'thies',
+      'telephone': '70-443-07-65',
+      'image': 'assets/r1.jpeg'
+    },
+    
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Liste des restaurants"),
-        centerTitle: true,
+  title: Align(
+    alignment: Alignment.centerLeft, // Aligner le titre à gauche
+    child: const Text(
+      "Liste des restaurants",
+      style: TextStyle(
+        color: Colors.black, // Vous pouvez changer la couleur du texte ici
       ),
+    ),
+  ),
+  centerTitle: false, // Désactiver l'alignement central du titre
+   automaticallyImplyLeading: false, // Désactive le bouton retour
+),
+
       body: ListView.builder(
         itemCount: restaurants.length,
         itemBuilder: (context, index) {
