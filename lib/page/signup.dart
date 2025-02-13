@@ -1,3 +1,5 @@
+import 'package:amimobile9/page/login1.dart';
+import 'package:amimobile9/page/welcome1.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,22 +11,33 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: testPage(),
+      home: signPage(),
     );
   }
 }
 
-class testPage extends StatelessWidget {
+class signPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black), // Icône retour
+          onPressed: () {
+            Navigator.pop(context); // Retour à la page précédente
+          },
+        ),
+      ),
       body: Stack(
         children: [
           // Fond d'écran
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/doux1.jpeg'), // Remplace avec ton image de fond
+                image: AssetImage(
+                    'assets/doux1.jpeg'), // Remplace avec ton image de fond
                 fit: BoxFit.cover,
               ),
             ),
@@ -50,7 +63,7 @@ class testPage extends StatelessWidget {
                 children: [
                   // Titre "Login"
                   Text(
-                    "Login",
+                    "Inscription",
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
@@ -61,8 +74,8 @@ class testPage extends StatelessWidget {
                   // Champ de saisie 1
                   TextField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.mic),
-                      hintText: "Fide in",
+                      prefixIcon: Icon(Icons.phone),
+                      hintText: "telephone",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -72,37 +85,36 @@ class testPage extends StatelessWidget {
                   // Champ de saisie 2
                   TextField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.person),
-                      hintText: "Tweir in...",
+                      prefixIcon: Icon(Icons.password),
+                      hintText: "Mot de passe",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
                   SizedBox(height: 15),
-                  // Option Game Services
-                  Row(
-                    children: [
-                      Icon(Icons.videogame_asset, color: Colors.red),
-                      SizedBox(width: 5),
-                      Text("Game Services", style: TextStyle(fontSize: 16)),
-                    ],
-                  ),
-                  SizedBox(height: 20),
+                  // "Game" en texte simple et "Services" en bouton cliquable
+
                   // Bouton "Sign Up"
                   ElevatedButton(
                     onPressed: () {
                       // Action à ajouter
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ResultatInscription()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
-                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 50),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 50),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
                     child: Text(
-                      "Sign Up",
+                      "S\'inscrire",
                       style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                   ),
@@ -111,6 +123,45 @@ class testPage extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+// ////
+class ResultatInscription extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Inscription réussie'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(
+              Icons.check_circle,
+              color: Colors.red,
+              size: 100,
+            ),
+            Text(
+              'Inscription réussie!',
+              style: TextStyle(fontSize: 24),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Naviguer vers la page de connexion après l'inscription réussie
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Login1Page()),
+                );
+              },
+              child: Text('Se connecter'),
+            ),
+          ],
+        ),
       ),
     );
   }

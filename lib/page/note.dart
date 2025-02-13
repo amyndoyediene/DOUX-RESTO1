@@ -11,8 +11,12 @@ class _AvisPageState extends State<AvisPage> {
 
   // Liste des avis existants
   List<Map<String, dynamic>> _reviews = [
-    {"user": "Alice", "rating": 4.5, "comment": "Conducteur très sympathique !"},
-    {"user": "Bob", "rating": 5, "comment": "Livraison rapide et efficace."},
+    {
+      "user": "Maty",
+      "rating": 4.5,
+      "comment": "Que de delicieux plats chez ndeye !"
+    },
+    {"user": "Bocar", "rating": 5, "comment": "Livraison rapide et efficace."},
   ];
 
   void _submitReview() {
@@ -32,7 +36,7 @@ class _AvisPageState extends State<AvisPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false, // Désactive le bout
-        title: Text("Avis et Notations"),
+        title: Text("Coup de coeur"),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -40,7 +44,7 @@ class _AvisPageState extends State<AvisPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Donnez votre avis",
+              "Quel est votre Coup de coeur",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
@@ -88,7 +92,8 @@ class _AvisPageState extends State<AvisPage> {
                   final review = _reviews[index];
                   return ListTile(
                     leading: Icon(Icons.person),
-                    title: Text("${review['user']} - ${review['rating']} étoiles"),
+                    title:
+                        Text("${review['user']} - ${review['rating']} étoiles"),
                     subtitle: Text(review['comment']),
                   );
                 },

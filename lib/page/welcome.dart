@@ -1,3 +1,4 @@
+import 'package:amimobile9/page/login1.dart';
 import 'package:amimobile9/page/onglet.dart';
 import 'package:amimobile9/page/welcome1.dart';
 import 'package:flutter/material.dart';
@@ -92,7 +93,7 @@ class CommencerPage extends StatelessWidget {
                 // Navigation vers une nouvelle page
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                  MaterialPageRoute(builder: (context) => Login1Page()),
                 );
               },
               style: ElevatedButton.styleFrom(

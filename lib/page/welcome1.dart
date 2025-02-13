@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
     backgroundColor: Colors.transparent,
     elevation: 0,
     leading: IconButton(
-      icon: Icon(Icons.arrow_back, color: Colors.white), // Icône retour
+      icon: Icon(Icons.arrow_back, color: Colors.black), // Icône retour
       onPressed: () {
         Navigator.pop(context); // Retour à la page précédente
       },
