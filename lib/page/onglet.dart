@@ -1,8 +1,8 @@
-
 import 'package:amimobile9/page/liste/listeresto.dart';
 import 'package:amimobile9/page/login1.dart';
 import 'package:amimobile9/page/new.dart';
 import 'package:amimobile9/page/note.dart';
+import 'package:amimobile9/page/seting.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -25,9 +25,9 @@ class _HomePageState extends State<HoPage> {
   int _currentIndex = 0;
   final List<Widget> _pages = [
     RestaurantList(),
-    newpage (),
+    newpage(),
     AvisPage(),
-    
+    Seting()
   ];
 
   @override
@@ -74,7 +74,10 @@ class _HomePageState extends State<HoPage> {
             icon: Icon(Icons.hide_image_rounded),
             label: 'Coup de coeur',
           ),
-          
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Parametre',
+          ),
         ],
       ),
     );
